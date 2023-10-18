@@ -14,7 +14,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 @EnableAsync
-public class DefaultExecutorPoolConfig implements AsyncConfigurer {
+public class DefaultAsyncExecutorPoolConfig implements AsyncConfigurer {
     @Autowired
     @Lazy
     private CacheDemoExceptionHandler cacheDemoExceptionHandler;

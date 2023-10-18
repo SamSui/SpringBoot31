@@ -7,6 +7,8 @@ public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+		// disable default error filter
+		setRegisterErrorPageFilter(false);
 		return application.sources(CachedemoApplication.class);
 	}
 
