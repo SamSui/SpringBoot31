@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ScheduledTask {
 
-    @Scheduled(fixedDelay = 2000)
+    @Scheduled(fixedDelay = 20000000)
     public void printLog(){
         System.out.println("scheduled task executor");
     }

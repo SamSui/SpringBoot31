@@ -4,7 +4,9 @@ import com.example.cachedemo.command.DataBody;
 import com.example.cachedemo.command.DataCommand;
 import com.example.cachedemo.command.UserCommand;
 import com.example.cachedemo.service.CacheClient;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cache")
+@Validated
 public class CacheController {
 
     @Autowired
@@ -50,6 +53,11 @@ public class CacheController {
 
     @PostMapping("/data1")
     public String getData1(@RequestBody DataCommand command){
+        return command.getDataName()+"_"+command.getIpAddress();
+    }
+
+    @PostMapping("/data2")
+    public String getData2(@Valid @RequestBody DataCommand command){
         return command.getDataName()+"_"+command.getIpAddress();
     }
 
